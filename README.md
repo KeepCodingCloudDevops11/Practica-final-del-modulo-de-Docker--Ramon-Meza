@@ -17,8 +17,7 @@ Implementación de una Aplicación como Microservicio con Contenedores
    - Construcción de la Imagen Docker para Flask (Dockerfile)
    - Configuración de los Contenedores y Servicios (docker-compose.yml)
    - Comprobar la conexión de la MySQL y verificar si la base de datos (`counterdb`) está disponible
-   - Interfaz de Usuario (count.html y styles.css)
-
+   
 
 ## Introducción
 
@@ -202,7 +201,7 @@ volumes:
 
 ```
 ### 4. Crear el archivo `.env`
-El archivo `.env` debe contener las credenciales para la base de datos MySQL.
+El archivo `.env` contiene las variables de entorno necesarias para conectar la aplicación Flask con la base de datos MySQL.
 
 ### 5. Crear el archivo `config.py`
 Contiene la configuración de la base de datos, utilizando las variables de entorno para las credenciales.
@@ -224,20 +223,19 @@ Una vez que los contenedores se hayan construido y estén en ejecución, podrás
 http://localhost:5000
 
 ```
+### 4. Interfaz de Usuario
+Muestra el contador actual y proporciona botones para interactuar con él. Usa JavaScript para enviar las actualizaciones del contador a la ruta `/count` y actualizar el valor mostrado en la página.
 
-## 4. Detener los Contenedores
+![Aplicación Flask](Contador-app.png)
+
+
+## 5. Detener los Contenedores
 Cuando hayas terminado de trabajar con la aplicación, puedes detener los contenedores utilizando el siguiente comando:
 ```bash
 docker-compose down
 
 ```
 Este comando detiene y elimina los contenedores en ejecución, pero conserva los volúmenes de datos para que no se pierdan.
-
-6. **styles.css**  
-   Define el estilo visual de la interfaz, proporcionando una experiencia de usuario atractiva y moderna.
-
-7. **.env**  
-   Contiene las variables de entorno necesarias para conectar la aplicación Flask con la base de datos MySQL.
 
 ## Detalles de la Implementación
 ### 1. Lógica de la Aplicación en Flask (`app.py`)
@@ -267,10 +265,7 @@ Se verifica el acceso a MySQL utilizando las credenciales definidas. Una vez est
 
 ![Consulta-db](Consulta-db.png)
 
-### 5. Interfaz de Usuario (`count.html` y `styles.css`)
-- **`count.html`**: Muestra el contador actual y proporciona botones para interactuar con él. Usa JavaScript para enviar las actualizaciones del contador a la ruta `/count` y actualizar el valor mostrado en la página.
-- **`styles.css`**: Define el estilo visual, incluyendo un fondo animado, botones interactivos y una animación 3D para el contador. También agrega un efecto de resplandor en el valor del contador.
 
-  ![Aplicación Flask](Contador-app.png)
+  
 
 

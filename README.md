@@ -259,7 +259,7 @@ Este archivo gestiona dos servicios:
   ![Escritorio Flask](Escritorio.png)
 
 ### 4. Comprobar la conexión de la MySQL y verificar si la base de datos (`counterdb`) está disponible
-Se verifica el acceso a MySQL utilizando las credenciales definidas. Una vez establecida la conexión, se comprueba si la base de datos (`counterdb`) aparece en la lista de bases de datos disponibles, lo que confirma su existencia. 
+Se comprueba si la MySQL ha iniciado correctamente a través de los logs, para luego acceder utilizando las credenciales definidas. Una vez establecida la conexión, se comprueba si la base de datos (`counterdb`) aparece en la lista de bases de datos disponibles, lo que confirma su existencia.  
 
 ![Logs-de-la-conexion-db](Logs-de-la-conexion-db.png)
 

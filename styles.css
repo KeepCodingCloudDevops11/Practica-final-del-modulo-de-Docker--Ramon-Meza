@@ -1,0 +1,126 @@
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Establecer la fuente de la página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2e3b44, #3f4a56); /* Fondo de gradiente en tonos oscuros */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    perspective: 1200px; /* Efecto 3D */
+}
+
+/* Fondo dinámico 3D */
+@keyframes backgroundAnim {
+    0% { background: linear-gradient(135deg, #2e3b44, #3f4a56); }
+    100% { background: linear-gradient(135deg, #223033, #34414f); }
+}
+
+body {
+    animation: backgroundAnim 10s infinite alternate;
+}
+
+/* Contenedor principal */
+.container {
+    background: rgba(30, 30, 30, 0.85);
+    border-radius: 20px;
+    padding: 50px;
+    width: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+    transform-style: preserve-3d;
+    animation: containerAnim 1.5s ease-in-out infinite alternate;
+}
+
+/* Animación para el contenedor (efecto de profundidad 3D) */
+@keyframes containerAnim {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(5deg); }
+}
+
+/* Cabecera */
+.header h1 {
+    font-size: 3rem;
+    color: #4cd137; /* Verde brillante */
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(76, 209, 55, 0.7);
+    letter-spacing: 2px;
+}
+
+.header p {
+    color: #bbb;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* Caja del contador */
+.counter-box {
+    background: rgba(40, 40, 40, 0.9);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Texto del contador */
+.counter-box p {
+    font-size: 1.6rem;
+    color: #4cd137; /* Verde brillante */
+    margin-bottom: 20px;
+}
+
+.counter-box strong {
+    font-size: 2.2rem;
+    color: #4cd137;
+    display: block;
+    margin-top: 10px;
+    text-shadow: 0 0 20px rgba(76, 209, 55, 0.7);
+}
+
+/* Estilo para los botones */
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    background: linear-gradient(45deg, #4cd137, #2ecc71);
+    border: none;
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(76, 209, 55, 0.4);
+}
+
+.button:hover {
+    background: linear-gradient(45deg, #2ecc71, #4cd137);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(76, 209, 55, 0.6);
+}
+
+.button:focus {
+    outline: none;
+}
+
+/* Animación de resplandor para el contador */
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #4cd137, 0 0 20px #4cd137; }
+    50% { box-shadow: 0 0 30px #4cd137, 0 0 40px #4cd137; }
+    100% { box-shadow: 0 0 10px #4cd137, 0 0 20px #4cd137; }
+}
+
+/* Agregar un efecto de resplandor al contador */
+#count-value {
+    animation: glow 1.5s ease-in-out infinite;
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador Interactivo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Contador Interactivo</h1>
+            <p>keepcoding práctica de contenedores Docker</p>
+        </div>
+
+        <div class="counter-box">
+            <p>El valor del contador es: <strong id="count-value">{{ count }}</strong></p>
+            <div class="buttons">
+                <button id="incrementButton" class="button">Incrementar</button>
+                <button id="decrementButton" class="button">Decrementar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('incrementButton').addEventListener('click', function() {
+            updateCount(1);
+        });
+
+        document.getElementById('decrementButton').addEventListener('click', function() {
+            updateCount(-1);
+        });
+
+        function updateCount(change) {
+            let currentCount = parseInt(document.getElementById('count-value').innerText);
+            let newCount = currentCount + change;
+            fetch('/count', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ count: newCount })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('count-value').innerText = newCount;
+            })
+            .catch(error => console.error('Error al actualizar el contador:', error));
+        }
+    </script>
+</body>
+</html>

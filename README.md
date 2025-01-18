@@ -64,7 +64,7 @@ flask-microservice/
 - **Contenedor MySQL**: Almacena el valor del contador en una base de datos MySQL.
 - **Docker Compose**: Gestiona ambos contenedores (Flask y MySQL) y los conecta a través de una red compartida.
 
-## Pasos para Configurar y Ejecutar la Aplicación
+## Pasos para configurar y ejecutar la aplicación
 ### 1. Crear el archivo `.env`
 El archivo `.env` debe contener las credenciales para la base de datos MySQL. Si aún no tienes este archivo.
 ### 2. Crear el archivo `app.py`

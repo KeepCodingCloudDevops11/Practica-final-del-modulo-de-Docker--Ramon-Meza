@@ -217,19 +217,19 @@ Para construir los contenedores Docker que ejecutarán la aplicación Flask y la
 ```bash
 docker-compose up --build
 ```
-## 3. Acceder a la Aplicación
+## 3. Acceder a la aplicación
 Una vez que los contenedores se hayan construido y estén en ejecución, podrás acceder a la aplicación web desde tu navegador utilizando la siguiente URL:
 ```bash
 http://localhost:5000
 
 ```
-### 4. Interfaz de Usuario
+### 4. Interfaz de usuario
 Muestra el contador actual y proporciona botones para interactuar con él. Usa JavaScript para enviar las actualizaciones del contador a la ruta `/count` y actualizar el valor mostrado en la página.
 
 ![Aplicación Flask](Contador-app.png)
 
 
-## 5. Detener los Contenedores
+## 5. Detener los contenedores
 Cuando hayas terminado de trabajar con la aplicación, puedes detener los contenedores utilizando el siguiente comando:
 ```bash
 docker-compose down
@@ -237,7 +237,7 @@ docker-compose down
 ```
 Este comando detiene y elimina los contenedores en ejecución, pero conserva los volúmenes de datos para que no se pierdan.
 
-## Detalles de la Implementación
+## Detalles de la implementación
 ### 1. Lógica de la Aplicación en Flask (`app.py`)
 
 - **Ruta `/` (GET)**: Renderiza la página con el contador actual, obteniendo el valor desde la base de datos MySQL.
@@ -245,13 +245,13 @@ Este comando detiene y elimina los contenedores en ejecución, pero conserva los
   
   ![Logs](Logs-Get-Post.png)
 
-### 2. Construcción de la Imagen Docker para Flask (`Dockerfile`)
+### 2. Construcción de la imagen Docker para Flask (`Dockerfile`)
 
 - Usa una imagen base de Python 3.9 slim.
 - Instala las dependencias definidas en `requirements.txt`.
 - Expone el puerto 5000 para que Flask pueda servir la aplicación web.
 
-### 3. Configuración de los Contenedores y Servicios (`docker-compose.yml`)
+### 3. Configuración de los contenedores y servicios (`docker-compose.yml`)
 Este archivo gestiona dos servicios:
 - **contador-app**: Contenedor que ejecuta la aplicación Flask.
 - **contador-db**: Contenedor que ejecuta MySQL. La base de datos y la aplicación Flask se conectan a través de una red compartida, y las variables de entorno definen las credenciales de la base de datos.

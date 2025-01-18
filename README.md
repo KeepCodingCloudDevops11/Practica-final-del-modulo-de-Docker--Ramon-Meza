@@ -1,7 +1,7 @@
 # Práctica final del módulo de Docker- Ramón Meza
 Implementación de una Aplicación como Microservicio con Contenedores
 
-## Índice de la Documentación
+## Indice de la documentación
 1. [Introducción](#introducción)
    - Descripción del Proyecto
    - Funcionalidades

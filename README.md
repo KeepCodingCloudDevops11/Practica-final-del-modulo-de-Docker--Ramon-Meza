@@ -65,9 +65,8 @@ flask-microservice/
 - **Docker Compose**: Gestiona ambos contenedores (Flask y MySQL) y los conecta a través de una red compartida.
 
 ## Pasos para configurar y ejecutar la aplicación
-### 1. Crear el archivo `.env`
-El archivo `.env` debe contener las credenciales para la base de datos MySQL. Si aún no tienes este archivo.
-### 2. Crear el archivo `app.py`
+
+### 1. Crear el archivo `app.py`
 Contiene la lógica principal de la aplicación Flask, incluidas las rutas para mostrar y actualizar el contador.
 ```bash
 import os
@@ -136,7 +135,7 @@ def update_count():
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=False)
 ```
-### 3. Crear el archivo `Dockerfile`
+### 2. Crear el archivo `Dockerfile`
 Define cómo construir la imagen Docker para la aplicación Flask, instalando las dependencias necesarias y exponiendo el puerto 5000.
 ```bash
 # Utiliza una imagen base de Python 3.9 slim
@@ -159,7 +158,7 @@ EXPOSE 5000
 CMD ["python", "app.py"]
 
 ```
-### 4. Crear el archivo `docker-compose.yml`
+### 3. Crear el archivo `docker-compose.yml`
 Define los servicios Docker para la aplicación Flask y MySQL. Gestiona la red y las variables de entorno para la conexión entre ambos servicios.
 ```bash
 version: '3.8'
@@ -202,6 +201,9 @@ volumes:
   db-data:
 
 ```
+### 4. Crear el archivo `.env`
+El archivo `.env` debe contener las credenciales para la base de datos MySQL.
+
 ### 5. Crear el archivo `config.py`
 Contiene la configuración de la base de datos, utilizando las variables de entorno para las credenciales.
 

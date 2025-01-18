@@ -212,7 +212,7 @@ Plantilla HTML que muestra el contador y permite interactuar con él.
 ### 7. Crear el archivo `styles.css`
 Define el estilo visual de la interfaz, proporcionando una experiencia de usuario atractiva y moderna.
 
-## 2. Construcción de los Contenedores Docker
+## 2. Construcción de los contenedores Docker
 Para construir los contenedores Docker que ejecutarán la aplicación Flask y la base de datos MySQL, utiliza el siguiente comando de Docker Compose:
 ```bash
 docker-compose up --build

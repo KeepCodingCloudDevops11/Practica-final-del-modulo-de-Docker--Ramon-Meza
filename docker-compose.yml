@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  contador-app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - DB_HOST=contador-db
+      - DB_PORT=3306
+      - DB_USER=root
+      - DB_PASSWORD=rootpassword
+      - DB_NAME=counterdb
+    depends_on:
+      - contador-db
+    networks:
+      - app-network
+    volumes:
+      - .:/app
+
+  contador-db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: counterdb
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+    volumes:
+      - db-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Montar el archivo init.sql
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  db-data:

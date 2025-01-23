@@ -51,6 +51,7 @@ flask-microservice/
 │   └── count.html       # Plantilla HTML
 ├── static/
 │   └── styles.css       # Estilos CSS
+├── init.sql
 └── .env                 # Variables de entorno
 ```
 ## Arquitectura
@@ -178,7 +179,7 @@ services:
     networks:
       - app-network
     volumes:
-      - .:/app  # Esto monta todo el proyecto en el contenedor, incluyendo 'templates' y 'static'
+      - .:/app
 
   contador-db:
     image: mysql:8.0
@@ -191,6 +192,13 @@ services:
       - app-network
     volumes:
       - db-data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Montar el archivo init.sql
+
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      retries: 5
+      timeout: 5s
 
 networks:
   app-network:
